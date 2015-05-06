@@ -21,6 +21,21 @@
     </style>    
 </head>
 <body>
-    <a href="http://scavhunt.uchicago.edu/">NO</a>
+    <a id="answer" href="http://scavhunt.uchicago.edu/">NO</a>
+
+    <script type="text/javascript">
+        // get the date from user's machine
+        var d = new Date();
+        d.setMinutes(d.getMinutes() + d.getTimezoneOffset() - 300);
+
+        // scav start/end dates
+        var start = new Date(Date.parse("May 7, 2015"));
+        var end = new Date(Date.parse("May 10, 2015"));
+
+        // update the answer if Scav!
+        if ((d.getTime() > start.getTime()) && (d.getTime() < end.getTime())) {
+            var txt = document.getElementById("answer").innerHTML = "YES";
+        }
+    </script>
 </body>
 </html>
