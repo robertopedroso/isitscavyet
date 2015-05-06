@@ -31,12 +31,18 @@
         d.setMinutes(d.getMinutes() + d.getTimezoneOffset() - 300);
 
         // scav start/end dates
+        var almost = new Date(Date.parse("May 6, 2015"));
         var start = new Date(Date.parse("May 7, 2015"));
         var end = new Date(Date.parse("May 10, 2015"));
 
         // update the answer if Scav!
         if ((d.getTime() > start.getTime()) && (d.getTime() < end.getTime())) {
-            var txt = document.getElementById("answer").innerHTML = "YES";
+            document.getElementById("answer").innerHTML = "YES";
+        }
+
+        // tease people if it's almost Scav
+        if ((d.getTime() > almost.getTime()) && d.getTime() < start.getTime()) {
+            document.getElementById("answer").innerHTML = "ALMOST";
         }
     </script>
 </body>
